@@ -31,11 +31,19 @@ export default () => {
   //Get a Single Categories
   const getCategory = async <T>(slug: string) => get<T>(`categories?slug=${slug}`);
 
+  //Get All Works
+  const getWorks = async <T>() => get<T>("works");
+  
+  //Get a Single Categories
+  const getWork = async <T>(slug: string) => get<T>(`works?slug=${slug}`);
+
   return {
     get,
     getPosts,
     getPost,
     getCategories,
-    getCategory
+    getCategory,
+    getWorks,
+    getWork
   }
 }

@@ -19,5 +19,7 @@ export default defineNuxtConfig({
     public:{
       wpUri: process.env.WP_URI,  
     }
-  }
+  },
+
+  
 })
