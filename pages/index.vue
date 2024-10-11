@@ -40,7 +40,6 @@ const {data: posts} = await useWpApi().getPosts<any>();
         :image="post._embedded?.['wp:featuredmedia']?.[0]?.source_url || ''"
         :excerpt="post.excerpt.rendered"
         :slug="post.slug"
-        
         />
       </div>
     </section>
