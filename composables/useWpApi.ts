@@ -35,7 +35,7 @@ export default () => {
   const getWorks = async <T>() => get<T>("works");
   
   //Get a Single Categories
-  const getWork = async <T>(slug: string) => get<T>(`works?slug=${slug}`);
+  const getWork = async <T>(slug: string) => get<T>(`works?slug=${slug}&_embed`);
 
   return {
     get,
