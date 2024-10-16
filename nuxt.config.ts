@@ -1,6 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: 'static', // 追加
+  target: 'static',
+  generate: {
+    routes: [
+      '/', // トップページ
+      // 他のルートが必要であれば追加
+    ]
+  },
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   
