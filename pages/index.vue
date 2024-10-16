@@ -1,6 +1,20 @@
 <script lang="ts" setup>
-const {data: posts} = await useWpApi().getPosts<any>();
+import { ref } from 'vue';
+
+const posts = ref<any[]>([]); // postsをanyの配列で初期化
+
+try {
+  const { data: fetchedPosts } = await useWpApi().getPosts<any>(); // APIからデータを取得
+  if (Array.isArray(fetchedPosts)) { // fetchedPostsが配列であることを確認
+    posts.value = fetchedPosts; // postsに代入
+  } else {
+    console.error('Fetched posts is not an array:', fetchedPosts);
+  }
+} catch (error) {
+  console.error('Error fetching posts:', error); // エラーをキャッチ
+}
 </script>
+
 
 <template>
   <main>
