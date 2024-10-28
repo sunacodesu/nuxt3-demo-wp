@@ -11,8 +11,6 @@ try {
 }
 </script>
 
-
-
 <template>
   <main>
     <PageHeader>
