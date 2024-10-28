@@ -16,11 +16,11 @@ try {
     <PageHeader>
       <!-- Image -->
       <div class="w-[200px] relative h-[200px] mr-5 rounded overflow-hidden shadow-md">
-        <img src="~/assets/img/elon.png" alt="" class="w-full h-full absolute object-cover" />
+        <img src="~/assets/img/flower.png" alt="" class="w-full h-full absolute object-cover" />
       </div>
       <!-- Header text -->
       <div>
-        <h1 class="text-4xl font-bold mb-2">Elon's Musk</h1>
+        <h1 class="text-4xl font-bold mb-2">nuxt test</h1>
         <p class="mb-3">
           I built SpaceX, acquired Tesla, Twitter.
         </p>

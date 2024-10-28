@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   app:{
     head:{
       charset: "UTF-16",
-      title: "Elon's Musk",
+      title: "saco nuxt",
       viewport: "width=device-width, initial-scale=1"
     }
   },
