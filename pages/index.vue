@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-let posts = [];
+let posts: any[] | globalThis.Ref<any, any> | null = [];
 let error: string | null = null;
 
 try {
