@@ -1,10 +1,17 @@
 <script lang="ts" setup>
-defineProps<{
+const props = defineProps<{
   title: string;
   image: string;
   excerpt?: string;
   slug: string;
 }>();
+
+import { computed } from 'vue';
+
+// HTMLタグを削除してクリーンなテキストを取得
+const cleanExcerpt = computed(() => {
+  return props.excerpt ? props.excerpt.replace(/<\/?[^>]+(>|$)/g, "") : "";
+});
 </script>
 
 <template>
@@ -20,8 +27,8 @@ defineProps<{
     <!-- Blog Contents -->
     <div class="p-5">
       <h3 class="text-xl font-semibold mb-3">{{ title }}</h3>
-      <p v-if="excerpt" class="text-sm mb-3">{{ excerpt }}
-      </p>
+      <!-- v-textを使用してHTMLタグなしのテキストを表示 -->
+      <p v-text="cleanExcerpt" class="text-sm mb-3"></p>
       <NuxtLink :to="`/${slug}`">Read More</NuxtLink>
     </div>
   </div>
