@@ -41,8 +41,6 @@ const post = computed(() => posts.value ? posts.value[0] : null);
   <p v-else>Loading...</p>
 </template>
 
-
-
 <style scoped>
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
   @apply mb-3 font-bold;
