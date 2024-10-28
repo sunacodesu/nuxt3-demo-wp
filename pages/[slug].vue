@@ -23,8 +23,12 @@ const post = computed(() => posts.value ? posts.value[0] : null);
         <span>Published on {{ post.date }}</span>
       </div>
       <!-- Post Image -->
-      <div class="w-full h-[250px] sm:h-[500px] relative shadow-xl rounded overflow-hidden">
-        <img :src="post._embedded?.['wp:featuredmedia']?.[0]?.source_url" alt="Blog Thumb" class="absolute w-full h-full object-cover">
+      <div v-if="post._embedded?.['wp:featuredmedia']?.[0]?.source_url" class="w-full h-[250px] sm:h-[500px] relative shadow-xl rounded overflow-hidden">
+        <img
+          :src="post._embedded['wp:featuredmedia'][0].source_url"
+          alt="Blog Thumb"
+          class="absolute w-full h-full object-cover"
+        >
       </div>
       <!-- Post Content -->
       <div class="post-content">
@@ -36,6 +40,8 @@ const post = computed(() => posts.value ? posts.value[0] : null);
   <!-- Fallback in case the post is not available -->
   <p v-else>Loading...</p>
 </template>
+
+
 
 <style scoped>
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
