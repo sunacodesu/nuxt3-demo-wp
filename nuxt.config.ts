@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: 'server',
+  target: 'static',
   generate: {
     routes: [
       '/', // トップページ
