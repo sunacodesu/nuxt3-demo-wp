@@ -22,7 +22,7 @@ try {
       <div>
         <h1 class="text-4xl font-bold mb-2">nuxt test</h1>
         <p class="mb-3">
-          I built SpaceX, acquired Tesla, Twitter.
+          なぜかwordpressの記事を更新してデプロイされると、トップページの一覧がひょうじされなくなる。
         </p>
         <a
           class="btn bg-sky-500 text-sky-50 py-2 px-4 rounded inline-block hover:bg-sky-600 duration-200"
