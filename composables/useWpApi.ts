@@ -1,36 +1,44 @@
 export default () => {
-  //Nuxt.js3の機能 nuxt.config.tsに定義されたrunTimeConfigの設定を取得する。
-  //
   const config = useRuntimeConfig();
   const wpUri = config.public.wpUri;
 
-  //get
-  const get = async <T>(endpoint: string)=> {
-    return useFetch<T>(`${wpUri}/wp-json/wp/v2/${endpoint}`);
-  }
+  // Fetch utility function
+  const get = async <T>(endpoint: string) => {
+    const { data, error } = await useFetch<T>(`${wpUri}/wp-json/wp/v2/${endpoint}`);
+    if (error.value) {
+      console.error('Error fetching data from API:', error.value);
+      return { data: null, error: error.value };
+    }
+    return { data, error: null };
+  };
 
-  //Get All Posts
+  // Get All Posts
   const getPosts = async <T>(
     categories?: number,
     page: number = 1,
     perPage: number = 9
   ) => {
     let query = `posts?_embed&per_page=${perPage}&page=${page}`;
-    if(categories) {
+    if (categories) {
       query += `&categories=${categories}`;
     }
     return get<T>(query);
-  }
+  };
 
-  //Get a Single Posts
-  const getPost = async <T>(slug: string) => get<T>(`posts?slug=${slug}&_embed`);
-  
-  //Get All Categories
-  const getCategories = async <T>() => get<T>("categories");
-  
-  //Get a Single Categories
-  const getCategory = async <T>(slug: string) => get<T>(`categories?slug=${slug}`);
+  // Get a Single Post
+  const getPost = async <T>(slug: string) => {
+    return get<T>(`posts?slug=${slug}&_embed`);
+  };
 
+  // Get All Categories
+  const getCategories = async <T>() => {
+    return get<T>("categories");
+  };
+
+  // Get a Single Category
+  const getCategory = async <T>(slug: string) => {
+    return get<T>(`categories?slug=${slug}`);
+  };
 
   return {
     get,
@@ -38,5 +46,5 @@ export default () => {
     getPost,
     getCategories,
     getCategory,
-  }
-}
+  };
+};
