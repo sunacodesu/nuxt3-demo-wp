@@ -14,6 +14,7 @@ const cleanExcerpt = computed(() => {
 });
 </script>
 
+
 <template>
   <div class="col-span-1 shadow-lg">
     <!-- Blog Image -->
